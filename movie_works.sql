@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 19, 2024 at 03:22 PM
+-- Generation Time: Mar 19, 2024 at 04:25 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -24,14 +24,15 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `movie_characters`
+-- Table structure for table `character_description`
 --
 
-CREATE TABLE `movie_characters` (
+CREATE TABLE `character_description` (
   `id` int(5) NOT NULL,
-  `protagonist_name` varchar(100) NOT NULL,
-  `antagonist_name` varchar(100) NOT NULL,
-  `movie_date` date NOT NULL
+  `name_of_character` varchar(100) NOT NULL,
+  `type_of_character` varchar(100) NOT NULL,
+  `type_of_conflict` varchar(100) NOT NULL,
+  `type_of_personality` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -42,10 +43,11 @@ CREATE TABLE `movie_characters` (
 
 CREATE TABLE `movie_description` (
   `id` int(5) NOT NULL,
-  `full_name` varchar(100) NOT NULL,
-  `movie_name` varchar(100) NOT NULL,
-  `movie_booked` date NOT NULL,
-  `movie_sched` date NOT NULL
+  `participant_name` varchar(100) NOT NULL,
+  `chosen_movie` varchar(100) NOT NULL,
+  `type_of_movie` varchar(100) NOT NULL,
+  `movie_sched` date NOT NULL,
+  `movie_booked` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -53,9 +55,9 @@ CREATE TABLE `movie_description` (
 --
 
 --
--- Indexes for table `movie_characters`
+-- Indexes for table `character_description`
 --
-ALTER TABLE `movie_characters`
+ALTER TABLE `character_description`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -69,9 +71,9 @@ ALTER TABLE `movie_description`
 --
 
 --
--- AUTO_INCREMENT for table `movie_characters`
+-- AUTO_INCREMENT for table `character_description`
 --
-ALTER TABLE `movie_characters`
+ALTER TABLE `character_description`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
 
 --
@@ -88,7 +90,7 @@ ALTER TABLE `movie_description`
 -- Constraints for table `movie_description`
 --
 ALTER TABLE `movie_description`
-  ADD CONSTRAINT `full_name_pk` FOREIGN KEY (`id`) REFERENCES `movie_characters` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `movie_name_pk` FOREIGN KEY (`id`) REFERENCES `character_description` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
